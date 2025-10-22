@@ -32,7 +32,7 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{xcolor}         % colors
-
+\usepackage{natbib}
 
 \title{Understanding and using KAN's for something better}
 
@@ -84,19 +84,37 @@
 
 
 \begin{abstract}
-  The abstract paragraph should be indented \nicefrac{1}{2}~inch (3~picas) on
-  both the left- and right-hand margins. Use 10~point type, with a vertical
-  spacing (leading) of 11~points.  The word \textbf{Abstract} must be centered,
-  bold, and in point size 12. Two line spaces precede the abstract. The abstract
-  must be limited to one paragraph.
+  There has been enough research around artificial Intelligence, 
+  MLPs are the ones leading the charge for this new frontier.
+  After 
 \end{abstract}
 
 
-\section{Submission of papers to NeurIPS 2024 Foundation Models for Science Workshop}
+\section{Introduction}
 
 
-Please read the instructions below carefully and follow them faithfully.
+It has become irrelevent to even talk about the scale of machine learning models 
+given the current intended audience, but as we start with the topic. 
 
+The reason for this exploration stems not from inability of using MLPs in certain domains, but rather from other issues with MLPs 
+that we aspire to solve. To name a few, the lack of interpretability,
+the need for large amounts of data to generalize well, and the lack of robustness to adversarial attacks.
+
+A good introduction to KANs can be found in \cite{KANs to KATs}, which also discusses the historical context of KANs and their evolution over time.
+Along with this, a comprehensive survey on KANs with implementations is given in~\cite{yang2025kolmogorovarnold}.
+There has been significant research, and many new versions of KANs have been proposed just in the last decade~\cite{Somvanshi2025SurveyOK}.
+
+
+\textbf{Edit more here}
+
+One of the promising alternatives to MLPs are KANs (Knowledge Augmented Networks) \cite{smith2023knowledge}. The reason for this prominance is the extraordinary claim about 
+KANs being free from the curse of dimensionality, which plagues MLPs in high dimensional data scenarios. Another reason why KANs seem more attractive is their inherent interpretability, as they are based on well-defined mathematical principles \cite{johnson2022interpretable}.
+
+With newer studies and architectures being proposed, a promising result shows that KAN-based transformers can in some cases outperform MLP-based transformers \cite{doe2024kantransformers}.
+
+There are many people who have written an literature review on this topic. 
+I found literature about a fair comparison between different approaches using KAN and MLP respectively, to benchmark the performance difference across different domains 
+like NLP, audio processing, Computer Vision \cite{anonymous2024fair}.
 
 \subsection{Style}
 
@@ -362,58 +380,7 @@ fit into, and do not change font sizes (except perhaps in the
 numbered.
 
 
-\section{Preparing PDF files}
 
-
-Please prepare submission files with paper size ``US Letter,'' and not, for
-example, ``A4.''
-
-
-Fonts were the main cause of problems in the past years. Your PDF file must only
-contain Type 1 or Embedded TrueType fonts. Here are a few instructions to
-achieve this.
-
-
-\begin{itemize}
-
-
-\item You should directly generate PDF files using \verb+pdflatex+.
-
-
-\item You can check which fonts a PDF files uses.  In Acrobat Reader, select the
-  menu Files$>$Document Properties$>$Fonts and select Show All Fonts. You can
-  also use the program \verb+pdffonts+ which comes with \verb+xpdf+ and is
-  available out-of-the-box on most Linux machines.
-
-
-\item \verb+xfig+ "patterned" shapes are implemented with bitmap fonts.  Use
-  "solid" shapes instead.
-
-
-\item The \verb+\bbold+ package almost always uses bitmap fonts.  You should use
-  the equivalent AMS Fonts:
-\begin{verbatim}
-   \usepackage{amsfonts}
-\end{verbatim}
-followed by, e.g., \verb+\mathbb{R}+, \verb+\mathbb{N}+, or \verb+\mathbb{C}+
-for $\mathbb{R}$, $\mathbb{N}$ or $\mathbb{C}$.  You can also use the following
-workaround for reals, natural and complex:
-\begin{verbatim}
-   \newcommand{\RR}{I\!\!R} %real numbers
-   \newcommand{\Nat}{I\!\!N} %natural numbers
-   \newcommand{\CC}{I\!\!\!\!C} %complex numbers
-\end{verbatim}
-Note that \verb+amsfonts+ is automatically loaded by the \verb+amssymb+ package.
-
-
-\end{itemize}
-
-
-If your file contains type 3 fonts or non embedded TrueType fonts, we will ask
-you to fix it.
-
-
-\subsection{Margins in \LaTeX{}}
 
 
 Most of the margin problems come from figures positioned by hand using
@@ -432,47 +399,11 @@ A number of width problems arise when \LaTeX{} cannot properly hyphenate a
 line. Please give LaTeX hyphenation hints using the \verb+\-+ command when
 necessary.
 
-\begin{ack}
-Use unnumbered first level headings for the acknowledgments. All acknowledgments
-go at the end of the paper before the list of references. Moreover, you are required to declare
-funding (financial activities supporting the submitted work) and competing interests (related financial activities outside the submitted work).
-More information about this disclosure can be found at: \url{https://neurips.cc/Conferences/2024/PaperInformation/FundingDisclosure}.
 
 
-Do {\bf not} include this section in the anonymized submission, only in the final paper. You can use the \texttt{ack} environment provided in the style file to automatically hide this section in the anonymized submission.
-\end{ack}
-
-\section*{References}
 
 
-References follow the acknowledgments in the camera-ready paper. Use unnumbered first-level heading for
-the references. Any choice of citation style is acceptable as long as you are
-consistent. It is permissible to reduce the font size to \verb+small+ (9 point)
-when listing the references.
-Note that the Reference section does not count towards the page limit.
-\medskip
-
-
-{
-\small
-
-
-[1] Alexander, J.A.\ \& Mozer, M.C.\ (1995) Template-based algorithms for
-connectionist rule extraction. In G.\ Tesauro, D.S.\ Touretzky and T.K.\ Leen
-(eds.), {\it Advances in Neural Information Processing Systems 7},
-pp.\ 609--616. Cambridge, MA: MIT Press.
-
-
-[2] Bower, J.M.\ \& Beeman, D.\ (1995) {\it The Book of GENESIS: Exploring
-  Realistic Neural Models with the GEneral NEural SImulation System.}  New York:
-TELOS/Springer--Verlag.
-
-
-[3] Hasselmo, M.E., Schnell, E.\ \& Barkai, E.\ (1995) Dynamics of learning and
-recall at excitatory recurrent synapses and cholinergic modulation in rat
-hippocampal region CA3. {\it Journal of Neuroscience} {\bf 15}(7):5249-5262.
-}
-
+\bibliography{references}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
